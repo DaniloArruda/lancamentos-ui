@@ -15,6 +15,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'lancamento', pathMatch: 'full' },
   { path: 'lancamento', component: LancamentosPesquisaComponent },
   { path: 'lancamento/novo', component: LancamentoCadastroComponent },
   { path: 'lancamento/:codigo', component: LancamentoCadastroComponent },
