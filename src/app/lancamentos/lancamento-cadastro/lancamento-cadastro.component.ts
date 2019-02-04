@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { ErrorHandlerService } from './../../core/error-handler.service';
 import { MessageService } from 'primeng/components/common/api';
 import { LancamentoService } from './../lancamento.service';
@@ -32,10 +33,12 @@ export class LancamentoCadastroComponent implements OnInit {
     private messageService: MessageService,
     private errorHandler: ErrorHandlerService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private title: Title
   ) { }
 
   ngOnInit() {
+    this.title.setTitle('Novo lançamento');
     this.carregarCategorias();
     this.carregarPessoas();
     this.verificarEdicao();
@@ -58,10 +61,12 @@ export class LancamentoCadastroComponent implements OnInit {
     if (this.route.snapshot.params['codigo']) {
       const codigo = this.route.snapshot.params['codigo'];
       this.lancamentoService.buscarPorCodigo(codigo)
-        .then(lancamento => this.lancamento = lancamento)
+        .then(lancamento => {
+          this.lancamento = lancamento;
+          this.title.setTitle(`Edição de lançamento: ${this.lancamento.descricao}`);
+          this.editando = true;
+        })
         .catch(erro => this.errorHandler.handle(erro));
-
-      this.editando = true;
     }
   }
 

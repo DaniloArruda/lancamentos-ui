@@ -1,9 +1,11 @@
 import { ErrorHandlerService } from './../../core/error-handler.service';
 import { MessageService } from 'primeng/components/common/api';
 import { Pessoa } from './../../core/model';
+import { PessoaService } from '../pessoa.service';
+
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PessoaService } from '../pessoa.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-pessoa-cadastro',
@@ -17,10 +19,12 @@ export class PessoaCadastroComponent implements OnInit {
   constructor(
     private pessoaService: PessoaService,
     private messageService: MessageService,
-    private errorHandler: ErrorHandlerService
+    private errorHandler: ErrorHandlerService,
+    private title: Title
   ) { }
 
   ngOnInit() {
+    this.title.setTitle('Nova pessoa');
   }
 
   salvar(form: FormControl) {

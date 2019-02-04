@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { RouterModule } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 registerLocaleData(localePt);
 
@@ -40,6 +41,7 @@ registerLocaleData(localePt);
 
     MessageService,
     ConfirmationService,
+    Title,
 
     { provide: LOCALE_ID, useValue: 'pt-BR' }
   ]
