@@ -55,7 +55,7 @@ export class PessoaService {
     const headers = new Headers();
     headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
 
-    return this.http.delete(`${this.pessoasUrl}/${codigo}234`, { headers })
+    return this.http.delete(`${this.pessoasUrl}/${codigo}`, { headers })
       .toPromise()
       .then(() => null);
   }
@@ -68,5 +68,23 @@ export class PessoaService {
     return this.http.put(`${this.pessoasUrl}/${codigo}/ativo`, status, { headers })
       .toPromise()
       .then(() => null);
+  }
+
+  buscarPorCodigo(codigo: number) {
+    const headers = new Headers();
+    headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
+
+    return this.http.get(`${this.pessoasUrl}/${codigo}`, { headers })
+      .toPromise()
+      .then(response => response.json());
+  }
+
+  atualizar(pessoa: Pessoa) {
+    const headers = new Headers();
+    headers.append('Authorization', 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
+
+    return this.http.put(`${this.pessoasUrl}/${pessoa.codigo}`, pessoa, { headers })
+      .toPromise()
+      .then(response => response.json());
   }
 }

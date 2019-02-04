@@ -38,14 +38,14 @@
             <td>{{pessoa.endereco.cidade}}</td>
             <td>{{pessoa.endereco.estado}}</td>
             <td>
-              <a href="#" [pTooltip]="pessoa.ativo === true ? 'Desativar' : 'Ativar'"
-              tooltipPosition="top" (click)="mudarStatus(pessoa)">
+              <a [pTooltip]="pessoa.ativo === true ? 'Desativar' : 'Ativar'"
+                tooltipPosition="top" (click)="mudarStatus(pessoa)">
                 {{pessoa.ativo === true ? 'Ativo' : 'Inativo'}}
               </a>
             </td>
             <td class="col-acoes">
-              <a pButton href="#" icon="pi pi-pencil" style="margin-right: 5px;"
-                pTooltip="Editar"></a>
+              <a [routerLink]="['/pessoa', pessoa.codigo]" pButton icon="pi pi-pencil"
+                style="margin-right: 5px;" pTooltip="Editar"></a>
               <button pButton icon="pi pi-trash" pTooltip="Excluir"
                 (click)="confirmarExclusao(pessoa)"></button>
             </td>
@@ -55,7 +55,7 @@
     </div>
 
     <div class="ui-g-12">
-      <p-button label="Nova pessoa"></p-button>
+      <p-button label="Nova pessoa" routerLink="/pessoa/nova"></p-button>
     </div>
   </div>
 </div>

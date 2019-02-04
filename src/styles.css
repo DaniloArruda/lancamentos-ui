@@ -43,3 +43,7 @@ body .ui-button {
 body .ui-table .ui-table-tbody > tr > td {
   padding: 0.250em 0.557em;
 }
+
+a {
+  cursor: pointer;
+}

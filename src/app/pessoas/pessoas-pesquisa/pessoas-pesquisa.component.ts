@@ -61,11 +61,7 @@ export class PessoasPesquisaComponent implements OnInit {
   excluir(pessoa: any) {
     this.pessoaService.excluir(pessoa.codigo)
       .then(() => {
-        if (this.tabela.first === 0) {
-          this.pesquisar();
-        } else {
-          this.tabela.first = 0;
-        }
+        this.atualizarTabela();
 
         this.messageService.add({
           severity: 'success',
@@ -94,5 +90,10 @@ export class PessoasPesquisaComponent implements OnInit {
         });
       })
       .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  atualizarTabela() {
+    const pagina = this.tabela.first / this.tabela.rows;
+    this.pesquisar(pagina);
   }
 }

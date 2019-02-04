@@ -17,15 +17,15 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
-
 import { CurrencyMaskModule } from 'ng2-currency-mask';
+
+import { LancamentosRoutingModule } from './lancamentos-routing.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    RouterModule,
 
     InputTextModule,
     ButtonModule,
@@ -38,7 +38,9 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
     CalendarModule,
     SelectButtonModule,
     CurrencyMaskModule,
-    InputMaskModule
+    InputMaskModule,
+
+    LancamentosRoutingModule
   ],
   exports: [
     LancamentoCadastroComponent,
