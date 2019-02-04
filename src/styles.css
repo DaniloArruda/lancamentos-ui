@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #404C51;
+}
+
+label {
+  font-weight: bold;
+}
+
+body .ui-button {
+  margin-right: 10px;
+}
+
+@media(min-width: 1200px) {
+  .container {
+    width: 1170px;
+    margin: 0 auto;
+  }
+}
+
+.ui-button-text {
+  font-weight: bold;
+}
+
+.col-valor {
+  width: 120px;
+  text-align: right;
+}
+
+.col-data {
+  width: 120px;
+  text-align: center;
+}
+
+.col-acoes {
+  width: 100px;
+  text-align: center;
+}
+
+body .ui-table .ui-table-tbody > tr > td {
+  padding: 0.250em 0.557em;
+}
