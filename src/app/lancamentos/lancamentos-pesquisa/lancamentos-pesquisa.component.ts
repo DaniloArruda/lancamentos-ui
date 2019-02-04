@@ -52,11 +52,7 @@ export class LancamentosPesquisaComponent implements OnInit {
   excluir(lancamento: any) {
     this.lancamentoService.excluir(lancamento.codigo)
       .then(() => {
-        if (this.tabela.first === 0) {
-          this.pesquisar();
-        } else {
-          this.tabela.first = 0;
-        }
+        this.atualizarTabela();
 
         this.messageService.add({
           severity: 'success',
@@ -70,6 +66,11 @@ export class LancamentosPesquisaComponent implements OnInit {
 
   aoMudarPagina(event: LazyLoadEvent) {
     const pagina = event.first / event.rows;
+    this.pesquisar(pagina);
+  }
+
+  atualizarTabela() {
+    const pagina = this.tabela.first / this.tabela.rows;
     this.pesquisar(pagina);
   }
 }

@@ -6,7 +6,7 @@ import { PessoaService, PessoaFiltro } from './../../pessoas/pessoa.service';
 import { CategoriaService } from './../../categorias/categoria.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-lancamento-cadastro',
@@ -31,7 +31,8 @@ export class LancamentoCadastroComponent implements OnInit {
     private lancamentoService: LancamentoService,
     private messageService: MessageService,
     private errorHandler: ErrorHandlerService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -91,5 +92,15 @@ export class LancamentoCadastroComponent implements OnInit {
         this.lancamento = new Lancamento();
       })
       .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  novo(form: FormControl)  {
+    form.reset();
+
+    setTimeout(() => {
+      this.lancamento = new Lancamento();
+    }, 1);
+
+    this.router.navigate(['/lancamento/novo']);
   }
 }
