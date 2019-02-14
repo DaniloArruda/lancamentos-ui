@@ -21,6 +21,11 @@ body .ui-button {
   }
 }
 
+.container-center {
+  width: 500px;
+  margin: auto;
+}
+
 .ui-button-text {
   font-weight: bold;
 }

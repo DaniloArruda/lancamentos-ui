@@ -2,6 +2,7 @@ import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { MessageService, ConfirmationService } from 'primeng/api';
 
+import { AuthService } from './../seguranca/auth.service';
 import { PessoaService } from './../pessoas/pessoa.service';
 import { LancamentoService } from './../lancamentos/lancamento.service';
 import { CategoriaService } from './../categorias/categoria.service';
@@ -38,11 +39,12 @@ registerLocaleData(localePt);
     LancamentoService,
     PessoaService,
     CategoriaService,
+    AuthService,
 
     MessageService,
     ConfirmationService,
-    Title,
 
+    Title,
     { provide: LOCALE_ID, useValue: 'pt-BR' }
   ]
 })

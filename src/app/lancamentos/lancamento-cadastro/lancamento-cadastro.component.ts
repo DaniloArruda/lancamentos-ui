@@ -51,8 +51,7 @@ export class LancamentoCadastroComponent implements OnInit {
   }
 
   carregarPessoas() {
-    const filtro = new PessoaFiltro();
-    this.pessoaService.pesquisar(filtro).then(response => {
+    this.pessoaService.pesquisaSimples().then(response => {
       this.pessoas = response.pessoas;
     });
   }

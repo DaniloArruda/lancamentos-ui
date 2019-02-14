@@ -1,0 +1,31 @@
+<div class="container-center">
+  {{ authService.jwtPayload | json }}
+  <form #form="ngForm">
+    <div class="ui-g">
+      <div class="ui-g-12">
+          <h1>Login</h1>
+      </div>
+    </div>
+
+    <div class="ui-g">
+      <div class="ui-g-12 ui-fluid">
+        <input type="text" pInputText placeholder="Usuário" name="usuario" ngModel required
+          #usuario="ngModel"/>
+      </div>
+    </div>
+
+    <div class="ui-g">
+      <div class="ui-g-12 ui-fluid">
+        <input type="password" pInputText placeholder="Senha" name="senha" ngModel required
+          #senha="ngModel"/>
+      </div>
+    </div>
+
+    <div class="ui-g">
+      <div class="ui-g-12 ui-fluid">
+        <button pButton type="submit" label="Login" [disabled]="form.invalid"
+          (click)="login(usuario.value, senha.value); senha.reset();"></button>
+      </div>
+    </div>
+  </form>
+</div>
