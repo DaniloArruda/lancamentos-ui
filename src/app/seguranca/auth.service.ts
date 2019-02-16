@@ -76,6 +76,20 @@ export class AuthService {
     return this.jwtPayload && this.jwtPayload.authorities.includes(permissao);
   }
 
+  temAlgumaPermissao(permissoes: string[]) {
+    for (const permissao of permissoes) {
+      if (this.temPermissao(permissao)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  naoTemNenhumaPermissao(permissoes: string[]) {
+    return !this.temAlgumaPermissao(permissoes);
+  }
+
   isAccessTokenInvalido() {
     const token = localStorage.getItem('token');
 

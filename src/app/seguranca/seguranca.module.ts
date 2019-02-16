@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth.guard';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -34,6 +35,9 @@ export function tokenGetter() {
       }
     })
   ],
-  declarations: [LoginFormComponent]
+  declarations: [LoginFormComponent],
+  providers: [
+    AuthGuard
+  ]
 })
 export class SegurancaModule { }

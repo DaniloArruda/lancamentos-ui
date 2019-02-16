@@ -8,7 +8,6 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    console.log('interceptou');
     if (this.authService.isAccessTokenInvalido()) {
       console.log('Access token expirado. Obter um novo access token...');
       this.authService.obterNovoAccessToken()
@@ -16,8 +15,6 @@ export class AuthInterceptor implements HttpInterceptor {
           return next.handle(req);
         });
     }
-
-    console.log('Access token válido');
     return next.handle(req);
   }
 }

@@ -15,6 +15,7 @@ import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { RouterModule } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { PaginaAcessoNegadoComponent } from './pagina-acesso-negado.component';
 
 registerLocaleData(localePt);
 
@@ -27,7 +28,8 @@ registerLocaleData(localePt);
     ConfirmDialogModule
   ],
   declarations: [
-    NavbarComponent
+    NavbarComponent,
+    PaginaAcessoNegadoComponent
   ],
   exports: [
     NavbarComponent,
