@@ -9,6 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class AuthService {
 
   oauthTokenUrl = 'http://localhost:8080/oauth/token';
+  logoutUrl = 'http://localhost:8080/tokens/revoke';
   jwtPayload: any;
   jwtHelper = new JwtHelperService();
 
@@ -45,6 +46,12 @@ export class AuthService {
 
         return Promise.reject(response);
       });
+  }
+
+  logout() {
+    return this.http.delete(this.logoutUrl)
+      .toPromise()
+      .then(() => this.limparAccessToken());
   }
 
   obterNovoAccessToken() {
@@ -94,6 +101,11 @@ export class AuthService {
     const token = localStorage.getItem('token');
 
     return !token || this.jwtHelper.isTokenExpired(token);
+  }
+
+  limparAccessToken() {
+    localStorage.removeItem('token');
+    this.jwtPayload = null;
   }
 
   private armazenarToken(token: string) {
